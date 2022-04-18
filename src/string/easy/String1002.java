@@ -1,7 +1,6 @@
 package string.easy;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author zard
@@ -9,22 +8,42 @@ import java.util.List;
  */
 public class String1002 {
     public static void main(String[] args) {
-        String[] words = {"bella","label","roller"};
+        String[] words = {"dbcdjbedfchcbhbecbadeaefefhcaagfghjaidaadeaabaaegj","hfacgbgcieccadeejddegjffejdjegejbaddaiabdhahbjaiba","igfaddihhceieadjgjhefaibcfcichcdecjcihfhcgfjeihidf","jaehjjibbhfdcjjdhecicefjjjdabibahgdaeibfefbbffhjja","degddigjijggagjgaaeeegfiahhcghbefcbdabeehbihjdeabi","bjdfedddebaifgadhgdhfjjdafajhiabbjjiidhcdaagajiafh","ihfjgjjcfeebebjgihdejjdheaeeddiajffjjdbfcfdaabgcei","jdbhhhigagieacgdabbchegdaefgeebaccdeajiifgfecbdgig","djhghabfejhcgbdejfcafjbagecbdggehaaddicgejhdgdahaf","hbaaccbffecibeiabdfeggbahbiehjiejifjjjbbbiiejcejdf","fadeddbhjehehhjiiehigjdaaiaaebjdaicbefacedfcgbegge","djhidhibeghjfbdgabgeejgedifdageichiijachhjfeihfieb","jdiagceichahjbjadhagegbbedhijhgefhfcbhdeefeahghfde","chhbbaeaeacaccbjiegfadfhabbchjggidahbgdhcadafjfifa","cdiabdbeaeefjiaadigdgiihajgcbghcfdhicjjfeiciaidjfh","gfehabegchgidgjbhdighfjbeajhdfaebificjaeahiajjgeab","agafjbjjhadjaichgfihehdhfaiiaffbijeahegjgfcidhhbed","gchagffchcjjadhbhhjfiiagejchbgjabadjcbdigdfdfabgee","ciacjdahajifafhbfbdaddbgbddedhjbbbdbbbfhcidfcbiijg","dbjjbajjgehcbgfaibjjcbigaijdjaagbfbfcjebahjchdfacg","bgfifecddgcfefijhccjiaiedhaeahihehiaedjfebejceibid","hiiigbiddhhejdebjcgjgdfiaijieibbaiibecbjigadejaibj","hafbbjafdjahdhdfiafedjjdgjghcfffcjedgjeffbeahfgbcf","bfcjigdiadjhfjjbghcdhchgaiefdijgcbbcjfaehccgddigah","aehfeiccfieaihijcgfahceadeiffefiegciageeaieghadgda","eafcdbagdafjdbicbabhihfhiefdiehhiiijigfhajfcbgajff","ecgdieegbfcijifhgicihhfhgbebgbjiiegbbfhijbcbecgigd","idhjgaccgaaieidbeidbcadhidhdddgjceccjgehjcidebeidi","bchhdjiiacccidhhcbchehcaddeccfecbcedidhhbjcigddhfg","ieddgabeciffjfchdggifjcebadchbdcdgiagefhecifgifdcj","bedcfhjehehdhafeadbdffbadjhgefjdchjghjedhgadihaedc","cfhcigdaaaddfjifaadejdgdfdfdhfebicfedcefbcgbbdbibh","jbddeaghjegebciaihfjffceiaehgaeecijefafficbajehgej","dbejheeaeadbaifegcjjhahggdbgjbeieghbeijjedjdbfiecc","dgdbefabibgeehgbdjggidagdfhjdgahbjidgejjfgcafcjddf","hcbaggjggcbcgjbceihbghdhbediacdfgfheghddecedddjggf","cdhhaaieachbfgcigidjfjcihecdegifedhadgacieciihafhf","hhicegfcdihbddjaibadeacbjdjjhjdeegjjaedgjegbbbbifg","bjcggafgaajegfcihfaicfhcdfdhgfegjfcbadighbciadhcfd","cabdajhgciaihgdccghbjcbgfighjideehbejjhhihgdjebgje","caaafahejcbedgibhadcfddaejhhaaicejefeghjhijcbfaegd","fggbheafgcbgdcfibiajdachcifhcfdfebbfcjfgefebebbdcc","gdiabbdaicaijehcjhhibbeeidjdjicdbddiaacciehehdbhch","ddbahiacdhccafecfhihfhdeicghdjbfbdehcjdhjhjehdfjhc","hadjggchcjdfaaicggigjgjaeegjfccccejeghbfcgajeccfee","ghcafaieijddfiebcibdccjijafiieeidjdiadbcjhbdjaeiec","gdfjagafhcaihhejfjcjecccfbcidhcidffebcigjdbafjgieh","ifafgibebjghgiaachefhggeibejfdhfaiciighejbiahiihii","caecdaaihahejaidgcecejgcdfhhdeghjacgeaefhjbijbbhgh","hhfdeajjijgeechaieehfcfjaaaadjbejibjfajijcfhicbjhb"};
         List<String> strings = Solution.commonChars(words);
         for (String items: strings
-             ) {
-            System.out.println(items);
+        ) {
+            System.out.print(items + " ");
         }
+        System.out.println();
     }
 
     static class Solution {
         public static List<String> commonChars(String[] words) {
-            List<String> result = new ArrayList<>();
-            String word = words[0];
-            for (int i = 1; i < words.length; i++) {
-
+            List<String> result1 = new ArrayList<>();
+            String orginal = words[0];
+            char[] orginals = orginal.toCharArray();
+            for (int i = 0; i < orginals.length; i++) {
+                boolean flag = false;
+                for (int j = 0; j < words.length; j++) {
+                    if (!words[j].contains(orginals[i] + ""))
+                        flag = true;
+                }
+                if (!flag)
+                    result1.add(orginals[i] + "");
             }
-            return result;
+            for (int j = 0; j < words.length; j++) {
+                Iterator<String> iter = result1.iterator();
+                while(iter.hasNext()) {
+                    String next = iter.next();
+                    Integer i1 = words[j].indexOf(next);
+                    if(i1.compareTo(-1) != 0){
+                        words[j] = words[j].replaceFirst(next, "!");
+                    }else{
+                        iter.remove();
+                    }
+                }
+            }
+            return result1;
         }
     }
 }
