@@ -1,9 +1,6 @@
 package queue.easy;
 
-import stack.easy.Stack1021;
-
 import java.util.PriorityQueue;
-import java.util.Stack;
 
 /**
  * @author zard

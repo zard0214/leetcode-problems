@@ -9,7 +9,6 @@ import java.util.List;
  */
 public class Arrays120 {
     public static void main(String[] args) {
-//        int[][] triangle = {{2}, {3,4}, {6,5,7}, {4,1,8,3}};
         List<List<Integer>> lists = new ArrayList<>();
         List<Integer> list1 = new ArrayList<>();
         list1.add(-1);

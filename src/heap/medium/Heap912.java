@@ -1,8 +1,5 @@
 package heap.medium;
 
-import heap.easy.Heap1337;
-
-import java.util.Stack;
 
 /**
  * @author zard

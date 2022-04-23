@@ -11,7 +11,6 @@ public class Arrays744 {
         char target = 'j';
         char c = Solution.nextGreatestLetter(letters, target);
         System.out.println(c);
-
     }
 
     static class Solution {

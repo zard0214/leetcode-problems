@@ -12,14 +12,7 @@ public class Arrays66 {
         Scanner SK = new Scanner(System.in);
         String s = SK.nextLine();
         System.out.println(s);
-
         SK.nextLine();
-//        int[] digits = {9, 8, 9 };
-//        int[] ints = Solution.plusOne(digits);
-//        for (Integer i: ints
-//             ) {
-//            System.out.println(i);
-//        }
     }
 
     static class Solution {
