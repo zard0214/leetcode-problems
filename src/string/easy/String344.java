@@ -50,7 +50,6 @@ public class String344 {
             for (int i = chars.length - 1; i >= 0; i--) {
                 if(chars[i] == '#'){
                     String substring = s.substring(i - 2, i + 1);
-                    System.out.println(substring);
                     String s1 = map.get(substring).toString();
                     result += s1;
                     i -= 2;
