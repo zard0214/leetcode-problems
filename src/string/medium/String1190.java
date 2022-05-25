@@ -1,5 +1,7 @@
 package string.medium;
 
+import com.sun.xml.internal.ws.util.StringUtils;
+
 import java.util.Stack;
 
 /**
@@ -20,28 +22,40 @@ public class String1190 {
 //    Explanation: First, we reverse the substring "oc", then "etco", and finally, the whole string.
 
     public static void main(String[] args) {
-        String s = "(a(bc)d)";
+        //Input: s = "(abcd)"
+        //Output: "dcba"
+        String s = "(u(love)i)";
+        //Output: "iloveu"
+        //Input: s = "(ed(et(oc))el)"
+        //Output: "leetcode"
         String s1 = Solution.reverseParentheses(s);
         System.out.println(s1);
     }
 
     static class Solution {
         public static String reverseParentheses(String s) {
-            String result = "";
-            Stack<Character> stack = new Stack<>();
-            int index = 0;
-            for (int i = 0; i < s.length(); i++) {
-                if(i > 0){
-                    if(s.charAt(i - 1) == '('){
-                        stack = new Stack<>();
+            Stack<Character> stack=  new Stack<>();
+            for(char c:s.toCharArray()){
+                if(c == ')'){
+                    StringBuilder inter = new StringBuilder();
+                    while(stack.peek() != '('){
+                        inter.append(stack.pop());
                     }
-                    if(s.charAt(i) == ')'){
-                        System.out.println("i: " + i);
+                    stack.pop();
+                    for(int i = 0;i < inter.length(); i++){
+                        stack.push(inter.charAt(i));
                     }
-                }
 
+                }
+                else {
+                    stack.push(c);
+                }
             }
-            return result;
+            StringBuilder sb = new StringBuilder();
+            while(!stack.isEmpty()){
+                sb.append(stack.pop());
+            }
+            return sb.reverse().toString();
         }
     }
 
