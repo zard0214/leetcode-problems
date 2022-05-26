@@ -7,7 +7,7 @@ package string.easy;
 public class String824 {
 
     public static void main(String[] args) {
-//        String sentence = "I speak Goat Latin";
+
         String sentence = "The quick brown fox jumped over the lazy dog";
         String s1 = Solution.toGoatLatin(sentence);
         System.out.println(s1);
