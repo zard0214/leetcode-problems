@@ -6,7 +6,7 @@ package dp.easy;
  */
 public class DP509 {
     public static void main(String[] args) {
-        System.out.println(Solution.fib(6));
+        System.out.println(Solution.fib(1000000));
     }
     static class Solution {
 
